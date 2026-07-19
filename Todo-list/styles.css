@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef4ff;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-list > li {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.sub-item {
+  margin-top: 8px;
+  margin-left: 28px;
+}
+
+.sub-item-link {
+  text-decoration: none;
+}
+
+/* Unvisited */
+.sub-item-link:link {
+  color: #2563eb;
+}
+
+/* Visited */
+.sub-item-link:visited {
+  color: #7c3aed;
+}
+
+/* Hover */
+.sub-item-link:hover {
+  color: #16a34a;
+}
+
+/* Focus */
+.sub-item-link:focus {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+/* Active (clicked) */
+.sub-item-link:active {
+  color: #dc2626;
+}
