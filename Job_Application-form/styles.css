@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f172a;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 650px;
+  margin: 40px auto;
+}
+
+form {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #555;
+  border-radius: 6px;
+  background: #334155;
+  color: white;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.radio-group {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid #555;
+  border-radius: 8px;
+}
+
+.radio-group input[type="radio"] {
+  width: auto;
+  margin-right: 6px;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.radio-group input[type="radio"] + label {
+  display: inline;
+  margin-right: 20px;
+}
+
+/* Focus */
+input:focus,
+textarea:focus {
+  border-color: dodgerblue;
+  outline: none;
+}
+
+/* Invalid */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: crimson;
+}
+
+/* Valid */
+input:valid,
+select:valid,
+textarea:valid {
+  border-color: limegreen;
+}
+
+/* Button Hover */
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: royalblue;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: midnightblue;
+}
+
+/* Checked Radio */
+.radio-group input[type="radio"]:checked {
+  border-color: limegreen;
+  background-color: limegreen;
+  box-shadow: 0 0 8px limegreen;
+}
+
+/* Checked Label */
+.radio-group input[type="radio"]:checked + label {
+  color: limegreen;
+  font-weight: bold;
+}
+
+/* First Input */
+input:first-of-type {
+  border-radius: 20px;
+}
