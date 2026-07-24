@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef2f7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#email {
+  width: 500px;
+  padding: 50px;
+  margin: 50px auto 0;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  background: #fff;
+  line-height: 1.7;
+  position: relative;
+}
+
+#confidential,
+#top-secret {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border: 2px solid #b30000;
+  color: #b30000;
+  font-weight: bold;
+}
+
+#confidential {
+  transform: rotate(-10deg);
+}
+
+#top-secret {
+  transform: rotate(8deg);
+}
+
+h1 {
+  margin: 30px 0 20px;
+  color: #222;
+}
+
+p {
+  margin-bottom: 18px;
+  color: #444;
+}
+
+.blurred {
+  filter: blur(3px);
+}
