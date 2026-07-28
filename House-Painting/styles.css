@@ -1,0 +1,308 @@
+/* ---------------------------------------------------------
+   Tokens
+--------------------------------------------------------- */
+:root {
+  --dusk-top: #201c3f;
+  --dusk-mid: #4a2f5c;
+  --dusk-glow: #ff9d6c;
+  --frame-wood: #6b4536;
+  --frame-wood-dark: #4a2f26;
+  --moon: #fdf3d8;
+  --moon-glow: #fbe7ad;
+  --star: #fdf3d8;
+
+  --house-body: #e7dfe9;
+  --house-line: #2f2440;
+  --roof: #8a3a3d;
+  --roof-line: #431c1e;
+  --chimney: #a2504a;
+  --window-glow: #ffce6b;
+  --window-line: #2f2440;
+  --door: #4a2e28;
+  --door-line: #2b1a17;
+
+  --ground-1: #2c4a38;
+  --ground-2: #3e6449;
+
+  --ink: #efe6e0;
+  --ink-soft: #cbb9c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  background:
+    radial-gradient(120% 90% at 50% 115%, var(--dusk-glow) 0%, transparent 55%),
+    linear-gradient(180deg, var(--dusk-top) 0%, var(--dusk-mid) 65%, #7a3f56 100%);
+  font-family: 'Baloo 2', system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------
+   Scene chrome (title + wooden frame)
+--------------------------------------------------------- */
+.scene {
+  width: min(92vw, 580px);
+}
+
+.title-block {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.title-block h1 {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  letter-spacing: 0.01em;
+}
+
+.sky-frame {
+  padding: 14px;
+}
+
+/* the "picture frame" wrapper around the night sky */
+.sky-wrap {
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(155deg, var(--frame-wood), var(--frame-wood-dark));
+  box-shadow:
+    0 20px 40px -18px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.sky {
+  position: relative;
+  overflow: hidden;
+  height: 560px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background: linear-gradient(180deg, #191734 0%, #3c2a53 55%, #7a3f56 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.moon {
+  position: absolute;
+  top: 34px;
+  right: 44px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--moon) 0%, var(--moon-glow) 55%, #e3c37a 100%);
+  box-shadow: 0 0 40px 10px rgba(251, 231, 173, 0.35);
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--star);
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+.s1 { top: 26px;  left: 12%; animation-delay: 0s; }
+.s2 { top: 64px;  left: 22%; animation-delay: 0.5s; }
+.s3 { top: 18px;  left: 38%; animation-delay: 1.1s; }
+.s4 { top: 80px;  left: 52%; animation-delay: 0.2s; }
+.s5 { top: 40px;  left: 68%; width: 4px; height: 4px; animation-delay: 1.6s; }
+.s6 { top: 70px;  left: 8%;  animation-delay: 2s; }
+.s7 { top: 16px;  left: 84%; animation-delay: 0.8s; }
+.s8 { top: 56px;  left: 92%; animation-delay: 1.3s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50%      { opacity: 1;    transform: scale(1.2); }
+}
+
+/* ---------------------------------------------------------
+   #house — required lab structure
+   (all mandated rules preserved; decoration layered on top)
+--------------------------------------------------------- */
+#house {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  background-color: var(--house-body);
+  border: 3px solid var(--house-line);
+  border-radius: 3px;
+  margin-bottom: 70px; /* reserves room for the ground strip */
+  box-shadow: 0 24px 34px -18px rgba(0, 0, 0, 0.55);
+  flex-shrink: 0;
+}
+
+#chimney,
+#roof,
+#window-1,
+#window-2,
+#door {
+  position: absolute;
+}
+
+#chimney {
+  top: -40px;
+  left: 60px;
+  width: 40px;
+  height: 90px;
+  border: 3px solid var(--roof-line);
+  background-color: var(--chimney);
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0,
+    rgba(0, 0, 0, 0.12) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index: -1;
+}
+
+#chimney::before,
+#chimney::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(245, 240, 232, 0.75);
+  animation: puff 3.6s ease-in infinite;
+}
+#chimney::before { top: -18px; animation-delay: 0s; }
+#chimney::after   { top: -18px; left: 16px; width: 12px; height: 12px; animation-delay: 1.2s; }
+
+@keyframes puff {
+  0%   { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  20%  { opacity: 0.7; }
+  100% { transform: translate(10px, -46px) scale(1.4); opacity: 0; }
+}
+
+#roof {
+  top: 0;
+  left: 130px;
+  width: 240px;
+  height: 100px;
+  border: 3px solid var(--roof-line);
+  background: linear-gradient(160deg, #a4494c 0%, var(--roof) 55%, var(--roof-line) 100%);
+  clip-path: polygon(0% 100%, 50% 4%, 100% 100%);
+}
+
+#window-1,
+#window-2 {
+  top: 110px;
+  width: 70px;
+  height: 70px;
+  border: 4px solid var(--window-line);
+  background:
+    linear-gradient(0deg, rgba(0,0,0,0.12), transparent 40%),
+    radial-gradient(circle at 50% 40%, #fff3c9 0%, var(--window-glow) 70%);
+  box-shadow: 0 0 22px 4px rgba(255, 206, 107, 0.45);
+}
+
+#window-1 { left: 60px; }
+#window-2 { right: 60px; }
+
+/* window cross-bars, purely decorative */
+#window-1::before, #window-1::after,
+#window-2::before, #window-2::after {
+  content: "";
+  position: absolute;
+  background: var(--window-line);
+}
+#window-1::before, #window-2::before {
+  top: 50%; left: 0; width: 100%; height: 3px; transform: translateY(-50%);
+}
+#window-1::after, #window-2::after {
+  left: 50%; top: 0; height: 100%; width: 3px; transform: translateX(-50%);
+}
+
+#door {
+  bottom: 0;
+  left: 215px;
+  width: 70px;
+  height: 160px;
+  border: 4px solid var(--door-line);
+  border-bottom: none;
+  border-radius: 34px 34px 0 0;
+  background: linear-gradient(160deg, #5a382f 0%, var(--door) 60%, var(--door-line) 100%);
+}
+
+#door::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--window-glow);
+  box-shadow: 0 0 6px 1px rgba(255, 206, 107, 0.7);
+}
+
+/* ---------------------------------------------------------
+   Ground strip
+--------------------------------------------------------- */
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(180deg, var(--ground-2) 0%, var(--ground-1) 100%);
+  box-shadow: inset 0 6px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+.blade {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 16px;
+  background: #5c8763;
+  border-radius: 3px 3px 0 0;
+  transform-origin: bottom center;
+}
+.b1 { left: 6%;  height: 20px; transform: rotate(-8deg); }
+.b2 { left: 16%; height: 14px; transform: rotate(6deg); }
+.b3 { left: 30%; height: 22px; transform: rotate(-4deg); }
+.b4 { left: 62%; height: 15px; transform: rotate(5deg); }
+.b5 { left: 78%; height: 19px; transform: rotate(-6deg); }
+.b6 { left: 90%; height: 13px; transform: rotate(8deg); }
+
+/* ---------------------------------------------------------
+   Responsive: scale the whole diorama down, never the
+   underlying #house box model itself
+--------------------------------------------------------- */
+@media (max-width: 620px) {
+  .sky {
+    transform: scale(0.82);
+    transform-origin: top center;
+    margin-bottom: -100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  #chimney::before,
+  #chimney::after {
+    animation: none;
+  }
+}
