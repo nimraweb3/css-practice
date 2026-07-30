@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8f9ff);
+  color: #222;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #243b55;
+}
+
+table {
+  width: min(1000px, 95%);
+  margin: auto;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+
+thead {
+  background: linear-gradient(90deg,#243b55,#141e30);
+  color: white;
+}
+
+th,
+td {
+  padding: 18px;
+  text-align: left;
+}
+
+th {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+tbody tr {
+  transition: .3s;
+}
+
+tbody tr:hover {
+  transform: scale(1.01);
+}
+
+/* ========= Required Attribute Selectors ========= */
+
+/* read rows */
+
+tr[class="read"] {
+  background-image: linear-gradient(to right,#e8fff2,#ffffff);
+}
+
+/* to-read rows */
+
+tr[class="to-read"] {
+  background-image: linear-gradient(to right,#fffbe8,#ffffff);
+}
+
+/* in-progress rows */
+
+tr[class="in-progress"] {
+  background-image: linear-gradient(to right,#e8f1ff,#ffffff);
+}
+
+/* Every span */
+
+span {
+  display: inline-block;
+}
+
+/* Status + Rate */
+
+span[class="status"],
+span[class^="rate"] {
+  height: 34px;
+  width: auto;
+  padding: 8px 14px;
+}
+
+/* Status for Read */
+
+tr[class="read"] span[class="status"] {
+  border: 2px solid #16a34a;
+  background-image: linear-gradient(#22c55e,#16a34a);
+  color: white;
+  border-radius: 50px;
+}
+
+/* Status for To Read */
+
+tr[class="to-read"] span[class="status"] {
+  border: 2px solid #eab308;
+  background-image: linear-gradient(#fde047,#facc15);
+  color: #222;
+  border-radius: 50px;
+}
+
+/* Status for In Progress */
+
+tr[class="in-progress"] span[class="status"] {
+  border: 2px solid #2563eb;
+  background-image: linear-gradient(#60a5fa,#2563eb);
+  color: white;
+  border-radius: 50px;
+}
+
+/* Rating container */
+
+span[class^="rate"] {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Rating circles */
+
+span[class^="rate"] > span {
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  margin: 0;
+  height: 18px;
+  width: 18px;
+  background-color: white;
+}
+
+/* ===== one ===== */
+
+span[class~="one"] span:first-child {
+  background-image: linear-gradient(gold, orange);
+}
+
+/* ===== two ===== */
+
+span[class~="two"] span:nth-child(-n+2) {
+  background-image: linear-gradient(gold, orange);
+}
+
+/* ===== three ===== */
+
+span[class~="three"] span {
+  background-image: linear-gradient(gold, orange);
+}
+
+/* Table Borders */
+
+tbody tr:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+
+td:nth-child(2) {
+  color: #555;
+}
+
+td:nth-child(3) {
+  font-style: italic;
+  color: #444;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+  body{
+    padding:20px;
+  }
+
+  h1{
+    font-size:2.2rem;
+  }
+
+  table{
+    font-size:.9rem;
+  }
+
+  th,
+  td{
+    padding:12px;
+  }
+
+}
