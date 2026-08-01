@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solidity Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <header>Solidity Documentation</header>
+
+    <a class="nav-link" href="#Introduction">Introduction</a>
+    <a class="nav-link" href="#Smart_Contracts">Smart Contracts</a>
+    <a class="nav-link" href="#Data_Types">Data Types</a>
+    <a class="nav-link" href="#Functions">Functions</a>
+    <a class="nav-link" href="#Best_Practices">Best Practices</a>
+  </nav>
+
+  <main id="main-doc">
+
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+
+      <p>Solidity is a high-level programming language used to develop smart contracts on Ethereum and other EVM-compatible blockchains.</p>
+      <p>It is statically typed and designed specifically for writing decentralized applications (dApps).</p>
+
+      <code>pragma solidity ^0.8.30;</code>
+
+      <ul>
+        <li>Designed for blockchain development.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Smart_Contracts">
+      <header>Smart Contracts</header>
+
+      <p>A smart contract is a self-executing program deployed on the blockchain.</p>
+      <p>Once deployed, its code cannot be changed unless upgrade patterns are implemented.</p>
+
+      <code>
+contract MyContract {
+
+}
+      </code>
+
+      <ul>
+        <li>Runs on the Ethereum Virtual Machine (EVM).</li>
+        <li>Stores state permanently on-chain.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Data_Types">
+      <header>Data Types</header>
+
+      <p>Solidity includes several primitive and complex data types.</p>
+      <p>Common data types include uint, int, bool, address, string, bytes, arrays, structs, and mappings.</p>
+
+      <code>uint256 public totalSupply = 1000;</code>
+
+      <ul>
+        <li>uint</li>
+        <li>address</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Functions">
+      <header>Functions</header>
+
+      <p>Functions define how users interact with a smart contract.</p>
+      <p>Visibility modifiers include public, private, internal, and external.</p>
+
+      <code>
+function greet() public pure returns (string memory) {
+    return "Hello, Solidity!";
+}
+      </code>
+
+      <ul>
+        <li>Use view for read-only functions.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Best_Practices">
+      <header>Best Practices</header>
+
+      <p>Always validate user input and use require statements to prevent invalid transactions.</p>
+      <p>Write efficient code to reduce gas costs and test contracts thoroughly before deployment.</p>
+
+      <code>require(msg.sender == owner, "Not authorized");</code>
+
+      <ul>
+        <li>Follow security best practices.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>
